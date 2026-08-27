@@ -1,28 +1,39 @@
 # V6 Code Assistant Plugin
 
-IntelliJ IDEA 插件，基于V6项目规范的代码助手工具。
+An IntelliJ IDEA plugin providing code assistant tools based on V6 project standards.
 
-## 功能特性
+## Features
 
-- 基于模板的代码生成（Column、Table、Model、Vue、Vo 、Menu等）
-- 可视化配置面板，一键初始化项目模板、一键升级版本、构建项目
-- 支持多端项目配置（服务端、Web端、PDA端）
-- 支持多语言
-- AI 接口预留（后期扩展）
+### Project Management
+- Visual configuration panel with one-click project template initialization
+- Platform version upgrade engine: major version upgrades (full replacement with reserved-directory restoration) and patch version upgrades
+- Build project dialog: version number automatically read from Server and incremented by default, then forcibly unified across all three ends (including unchecked modules)
+- Parallel make build in an independent window (does not occupy IDEA memory, avoiding freezes and crashes), with real-time progress bar showing ✓/✗ marks and percentage
+- make.bat copy injected with SUCCESS/FAILURE result markers, unaffected by `pause` and exit codes; window closes automatically on build success
+- Artifacts packaged as zip per module (Server→lib.zip, Web→web.zip, PDA→pda.zip); the notification provides an "Open Output Directory" link
+- Temporary files are automatically cleaned up when the build ends (success/failure/cancel)
+- Field value constant sync (ColumnType): full sync, selected-text incremental sync, and custom field sync to frontend JS
+- Check flag sync (CheckType): full sync and selected-text incremental sync to frontend JS
 
-## 构建
+### Others
+- Multi-end project configuration support (Server, Web, PDA)
+- Chinese/English internationalization
+- API Key stored encrypted (using the OS-native keychain)
+- Right-click menu: one-click launch of Web/PDA dev servers
+
+## Build
 
 ```bash
 ./gradlew buildPlugin
 ```
 
-## 运行沙箱 IDE
+## Run Sandbox IDE
 
 ```bash
 ./gradlew runIde
 ```
 
-## 开发环境
+## Development Environment
 
 - JDK 17+
 - IntelliJ IDEA 2023.1+
